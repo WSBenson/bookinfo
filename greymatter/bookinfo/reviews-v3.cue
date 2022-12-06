@@ -19,7 +19,7 @@ Reviews_V3: gsl.#Service & {
 	api_spec_endpoint: "https://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
 	business_impact:   "low"
 	owner:             "Library"
-	capability:        ""
+	capability:        "Web"
 
 	health_options: {
 		tls: gsl.#MTLSUpstream
@@ -27,51 +27,25 @@ Reviews_V3: gsl.#Service & {
 	ingress: {
 		(name): {
 			gsl.#HTTPListener
-			// gsl.#MTLSListener
-
-			//  NOTE: this must be filled out by a user. Impersonation allows other services to act on the behalf of identities
-			//  inside the system. Please uncomment if you wish to enable impersonation. If the servers list if left empty,
-			//  all traffic will be blocked.
-			// filters: [
-			//    gsl.#ImpersonationFilter & {
-			//  #options: {
-			//   servers: ""
-			//   caseSensitive: false
-			//  }
-			//    }
-			// ]
-			routes: {
-				"/": {
-					upstreams: {
-						"local": {
-							instances: [
-								{
-									host: "127.0.0.1"
-									port: 9090
-								},
-							]
-						}
-					}
-				}
-			}
+			gsl.#MTLSListener
+			routes:
+				"/":
+					upstreams:
+						"local":
+							instances: [{host: "127.0.0.1", port: 9080}]
 		}
 	}
 	egress: {
 		"backends": {
 			gsl.#HTTPListener
-			custom_headers: [
-				{
-					key:   "x-forwarded-proto"
-					value: "https"
-				},
-			]
+
 			port: context.globals.custom.default_egress
 			routes: {
 				"/ratings/": {
 					upstreams: {
 						"ratings": {
+							gsl.#MTLSUpstream
 							namespace: "bookinfo"
-							// gsl.#MTLSUpstream
 						}
 					}
 				}
@@ -84,6 +58,7 @@ Reviews_V3: gsl.#Service & {
 		routes: "/bookinfo/reviews-v3": {
 			prefix_rewrite: "/"
 			upstreams: (name): {
+				gsl.#MTLSUpstream
 				namespace: "bookinfo"
 			}
 		}
