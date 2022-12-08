@@ -11,12 +11,14 @@ Reviews_V1: gsl.#Service & {
 	// to your service definitions.
 	context: Reviews_V1.#NewContext & globals
 
-	name:              "reviews-v1"
-	display_name:      "Bookinfo Reviews v1"
-	version:           "v1.0.0"
-	description:       "Holds reviews for books"
-	api_endpoint:      "https://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
-	api_spec_endpoint: "https://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
+	name:         "reviews-v1"
+	display_name: "Bookinfo Reviews v1"
+	version:      "v1.0.0"
+	description:  "Holds reviews for books"
+	// api_endpoint:      "https://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
+	// api_spec_endpoint: "https://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
+	api_endpoint:      "http://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
+	api_spec_endpoint: "http://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
 	business_impact:   "low"
 	owner:             "Library"
 	capability:        "Web"
@@ -28,7 +30,8 @@ Reviews_V1: gsl.#Service & {
 	ingress: {
 		(name): {
 			gsl.#HTTPListener
-			gsl.#MTLSListener
+
+			// gsl.#MTLSListener
 			routes:
 				"/":
 					upstreams:
@@ -43,7 +46,7 @@ Reviews_V1: gsl.#Service & {
 			"/bookinfo/reviews-v1": {
 				prefix_rewrite: "/"
 				upstreams: (name): {
-					gsl.#MTLSUpstream
+					// gsl.#MTLSUpstream
 					namespace: "bookinfo"
 				}
 			}
