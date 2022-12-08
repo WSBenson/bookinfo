@@ -32,39 +32,6 @@ Productpage: gsl.#Service & {
 		}
 	}
 
-	egress: "backends": {
-		gsl.#HTTPListener
-		port: context.globals.custom.default_egress
-		routes: {
-			"/details/": {
-				upstreams: {
-					"details": {
-
-						namespace: "bookinfo"
-					}
-				}
-			}
-			"/ratings/": {
-				upstreams: {
-					"ratings": {
-
-						namespace: "bookinfo"
-					}
-				}
-			}
-			"/reviews/": {
-				upstreams: {
-					// All traffic goes to v1 right now
-					"reviews-v1": {
-
-						namespace: "bookinfo"
-					}
-
-				}
-			}
-		}
-	}
-
 	edge: {
 		edge_name: "edge"
 		routes: "/": upstreams: (name): {gsl.#MTLSUpstream, namespace: context.globals.namespace}
