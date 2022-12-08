@@ -26,7 +26,6 @@ Ratings: gsl.#Service & {
 	ingress: {
 		(name): {
 			gsl.#HTTPListener
-			gsl.#MTLSListener
 
 			routes:
 				"/":
@@ -43,7 +42,7 @@ Ratings: gsl.#Service & {
 			"/bookinfo/ratings": {
 				prefix_rewrite: "/"
 				upstreams: (name): {
-					gsl.#MTLSUpstream
+
 					namespace: "bookinfo"
 				}
 			}

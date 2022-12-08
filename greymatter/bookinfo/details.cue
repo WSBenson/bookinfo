@@ -25,7 +25,6 @@ Details: gsl.#Service & {
 
 	ingress: {
 		(name): {
-			gsl.#MTLSListener
 			gsl.#HTTPListener
 			routes: {
 				"/": {
@@ -49,7 +48,6 @@ Details: gsl.#Service & {
 		routes: "/bookinfo/details": {
 			prefix_rewrite: "/"
 			upstreams: (name): {
-				gsl.#MTLSUpstream
 				namespace: "bookinfo"
 			}
 		}

@@ -39,7 +39,7 @@ Productpage: gsl.#Service & {
 			"/details/": {
 				upstreams: {
 					"details": {
-						gsl.#MTLSUpstream
+
 						namespace: "bookinfo"
 					}
 				}
@@ -47,7 +47,7 @@ Productpage: gsl.#Service & {
 			"/ratings/": {
 				upstreams: {
 					"ratings": {
-						gsl.#MTLSUpstream
+
 						namespace: "bookinfo"
 					}
 				}
@@ -56,26 +56,10 @@ Productpage: gsl.#Service & {
 				upstreams: {
 					// All traffic goes to v1 right now
 					"reviews-v1": {
-						gsl.#MTLSUpstream
-						namespace:       "bookinfo"
-						traffic_options: gsl.#SplitTraffic & {
-							weight: 100
-						}
+
+						namespace: "bookinfo"
 					}
-					"reviews-v2": {
-						gsl.#MTLSUpstream
-						namespace:       "bookinfo"
-						traffic_options: gsl.#SplitTraffic & {
-							weight: 0
-						}
-					}
-					"reviews-v3": {
-						gsl.#MTLSUpstream
-						namespace:       "bookinfo"
-						traffic_options: gsl.#SplitTraffic & {
-							weight: 0
-						}
-					}
+
 				}
 			}
 		}
