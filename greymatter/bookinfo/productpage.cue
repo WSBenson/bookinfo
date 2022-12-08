@@ -13,8 +13,8 @@ Productpage: gsl.#Service & {
 	display_name:      "Bookinfo Productpage"
 	version:           "v1.0.0"
 	description:       "Book info product web app"
-	api_endpoint:      "https://\(context.globals.edge_host)/"
-	api_spec_endpoint: "https://\(context.globals.edge_host)/"
+	api_endpoint:      "http://\(context.globals.edge_host)/"
+	api_spec_endpoint: "http://\(context.globals.edge_host)/"
 	business_impact:   "low"
 	owner:             "Library"
 	capability:        "Web"
@@ -26,15 +26,13 @@ Productpage: gsl.#Service & {
 	ingress: {
 		(name): {
 			gsl.#HTTPListener
-			gsl.#MTLSListener
-
 			routes: "/": upstreams: "local": instances: [{host: "127.0.0.1", port: 9090}]
 		}
 	}
 
 	edge: {
 		edge_name: "edge"
-		routes: "/": upstreams: (name): {gsl.#MTLSUpstream, namespace: context.globals.namespace}
+		routes: "/": upstreams: (name): {namespace: context.globals.namespace}
 
 	}
 }

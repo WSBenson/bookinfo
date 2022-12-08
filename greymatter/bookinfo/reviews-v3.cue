@@ -12,11 +12,11 @@ Reviews_V3: gsl.#Service & {
 	context: Reviews_V3.#NewContext & globals
 
 	name:              "reviews-v3"
-	display_name:      "Bookinfo Reviews v3"
+	display_name:      "Bookinfo Reviews"
 	version:           "v3.0.0"
 	description:       "Holds reviews for books"
-	api_endpoint:      "https://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
-	api_spec_endpoint: "https://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
+	api_endpoint:      "http://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
+	api_spec_endpoint: "http://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
 	business_impact:   "low"
 	owner:             "Library"
 	capability:        "Web"
@@ -29,6 +29,7 @@ Reviews_V3: gsl.#Service & {
 			gsl.#HTTPListener
 
 			// gsl.#MTLSListener
+
 			routes:
 				"/":
 					upstreams:
@@ -58,7 +59,9 @@ Reviews_V3: gsl.#Service & {
 		routes: "/bookinfo/reviews-v3": {
 			prefix_rewrite: "/"
 			upstreams: (name): {
+
 				// gsl.#MTLSUpstream
+
 				namespace: "bookinfo"
 			}
 		}
