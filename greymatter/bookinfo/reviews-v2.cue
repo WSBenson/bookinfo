@@ -21,9 +21,6 @@ Reviews_V2: gsl.#Service & {
 	owner:             "Library"
 	capability:        "Web"
 
-	health_options: {
-		tls: gsl.#MTLSUpstream
-	}
 	// Reviews-V2 -> ingress to your container
 	ingress: {
 		(name): {

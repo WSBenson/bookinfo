@@ -24,13 +24,10 @@ Edge: gsl.#Service & {
 	business_impact:   "high"
 	owner:             "Bookinfo"
 	capability:        "Proxy"
-	health_options: {
-		tls: gsl.#MTLSUpstream
-	}
+
 	ingress: {
 		(name): {
 			gsl.#HTTPListener
-			gsl.#MTLSListener
 			port: 10809
 
 			filters: [
@@ -57,7 +54,7 @@ Edge: gsl.#Service & {
 				//  #option: {
 				//   policies.#RBAC.#DenyAll
 				//  }
-				// },,,
+				// },,,,,
 			]
 
 			// Default cluster pointing to itself

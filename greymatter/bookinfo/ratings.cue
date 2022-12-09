@@ -19,14 +19,10 @@ Ratings: gsl.#Service & {
 	owner:             "Library"
 	capability:        "Web"
 
-	health_options: {
-		tls: gsl.#MTLSUpstream
-	}
 	// Ratings -> ingress to your container
 	ingress: {
 		(name): {
 			gsl.#HTTPListener
-
 			routes:
 				"/":
 					upstreams:

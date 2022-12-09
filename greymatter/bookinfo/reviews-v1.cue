@@ -23,10 +23,6 @@ Reviews_V1: gsl.#Service & {
 	owner:             "Library"
 	capability:        "Web"
 
-	health_options: {
-		tls: gsl.#MTLSUpstream
-	}
-
 	ingress: {
 		(name): {
 			gsl.#HTTPListener
