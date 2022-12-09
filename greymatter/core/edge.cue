@@ -31,7 +31,6 @@ Edge: gsl.#Service & {
 			port: 10809
 
 			filters: [
-				gsl.#InheadersFilter
 
 				// gsl.#OPAFilter & {
 				//  #options: {
@@ -54,7 +53,7 @@ Edge: gsl.#Service & {
 				//  #option: {
 				//   policies.#RBAC.#DenyAll
 				//  }
-				// },,,,,
+				// },
 			]
 
 			// Default cluster pointing to itself
