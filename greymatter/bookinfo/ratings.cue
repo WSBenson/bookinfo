@@ -35,8 +35,8 @@ Ratings: gsl.#Service & {
 	edge: {
 		edge_name: "edge"
 		routes: {
-			"/bookinfo/ratings": {
-				prefix_rewrite: ""
+			"/bookinfo/ratings/": {
+				prefix_rewrite: "/"
 				upstreams: (name): {
 
 					namespace: "bookinfo"
