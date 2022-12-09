@@ -49,8 +49,11 @@ Details2: gsl.#Service & {
 	// outside your cluster/mesh.
 	edge: {
 		edge_name: "edge"
-		routes: "\(context.globals.namespace)/\(name)": upstreams: (name): {
-			namespace: context.globals.namespace
+		routes: "/bookinfo/details": {
+			prefix_rewrite: "/"
+			upstreams: (name): {
+				namespace: context.globals.namespace
+			}
 		}
 	}
 
