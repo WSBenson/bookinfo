@@ -12,7 +12,7 @@ Reviews_V1: gsl.#Service & {
 	context: Reviews_V1.#NewContext & globals
 
 	name:         "reviews-v1"
-	display_name: "Bookinfo Reviews v1"
+	display_name: "Bookinfo Reviews"
 	version:      "v1.0.0"
 	description:  "Holds reviews for books"
 	// api_endpoint:      "https://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"

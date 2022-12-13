@@ -12,7 +12,7 @@ Reviews_V2: gsl.#Service & {
 	context: Reviews_V2.#NewContext & globals
 
 	name:              "reviews-v2"
-	display_name:      "Bookinfo Reviews v2"
+	display_name:      "Bookinfo Reviews"
 	version:           "v2.0.0"
 	description:       "Holds reviews for books"
 	api_endpoint:      "http://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
@@ -38,7 +38,7 @@ Reviews_V2: gsl.#Service & {
 			port: context.globals.custom.default_egress
 			routes: {
 				"/ratings": {
-					prefix_rewrite: "/"
+					prefix_rewrite: "/ratings/"
 					upstreams: {
 						"ratings": {
 							namespace: "bookinfo"

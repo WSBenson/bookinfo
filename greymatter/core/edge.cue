@@ -22,8 +22,8 @@ Edge: gsl.#Service & {
 	api_endpoint:      "N/A"
 	api_spec_endpoint: "N/A"
 	business_impact:   "high"
-	owner:             "Bookinfo"
-	capability:        "Proxy"
+	owner:             "Library"
+	capability:        "Ingress"
 
 	ingress: {
 		(name): {
