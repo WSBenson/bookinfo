@@ -31,21 +31,21 @@ Edge: gsl.#Service & {
 			port: 10809
 			filters: [
 
-				gsl.#OPAFilter & {
-				 #options: {
-				  with_request_body: {
-				   max_request_bytes:     1024
-				   allow_partial_message: true
-				   pack_as_bytes:         true
-				  }
-				  static_host: {
-				   target_uri:  "localhost:9191"
-				   stat_prefix: "opa"
-				  }
-				  failure_mode_allow: false
-				  status_on_error: code: "ServiceUnavailable"
-				 }
-				},
+				// gsl.#OPAFilter & {
+				//  #options: {
+				//   with_request_body: {
+				//    max_request_bytes:     1024
+				//    allow_partial_message: true
+				//    pack_as_bytes:         true
+				//   }
+				//   static_host: {
+				//    target_uri:  "localhost:9191"
+				//    stat_prefix: "opa"
+				//   }
+				//   failure_mode_allow: false
+				//   status_on_error: code: "ServiceUnavailable"
+				//  }
+				// },
 
 				// Make sure to uncomment the policies import statement
 				//gsl.#RBACFilter & {
