@@ -9,7 +9,7 @@ import (
 	gsl "greymatter.io/gsl/v1"
 
 	"bookinfo.module/greymatter:globals"
-	// policies "bookinfo.module/greymatter/policies"
+	policies "bookinfo.module/greymatter/policies"
 )
 
 Edge: gsl.#Service & {
@@ -27,8 +27,7 @@ Edge: gsl.#Service & {
 
 	ingress: {
 		(name): {
-			//gsl.#HTTPListener
-			gsl.#MTLSListener
+			gsl.#HTTPListener
 			port: 10809
 
 			filters: [
@@ -50,11 +49,11 @@ Edge: gsl.#Service & {
 				// },
 
 				// Make sure to uncomment the policies import statement
-				// gsl.#RBACFilter & {
-				//  #option: {
-				//   policies.#RBAC.#DenyAll
-				//  }
-				// },
+				gsl.#RBACFilter & {
+				 #option: {
+				  policies.#RBAC.#DenyAll
+				 }
+				},
 			]
 
 			// Default cluster pointing to itself

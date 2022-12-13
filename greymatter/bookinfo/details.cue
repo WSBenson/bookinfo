@@ -13,16 +13,15 @@ Details: gsl.#Service & {
 	display_name:      "Bookinfo Details"
 	version:           "v1.0.0"
 	description:       "Provides product details on books"
-	api_endpoint:      "https://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
-	api_spec_endpoint: "https://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
+	api_endpoint:      "http://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
+	api_spec_endpoint: "http://\(context.globals.edge_host)/\(context.globals.namespace)/\(name)"
 	business_impact:   "low"
 	owner:             "Library"
 	capability:        "Web"
 
 	ingress: {
 		(name): {
-			//gsl.#HTTPListener
-			gsl.#MTLSListener
+			gsl.#HTTPListener
 			routes: {
 				"/": {
 					upstreams: {
@@ -45,7 +44,6 @@ Details: gsl.#Service & {
 		routes: "/bookinfo/details": {
 			prefix_rewrite: "/"
 			upstreams: (name): {
-				gsl.#MTLSUpstream
 				namespace: "bookinfo"
 			}
 		}
