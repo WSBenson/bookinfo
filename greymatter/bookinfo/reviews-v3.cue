@@ -24,11 +24,20 @@ Reviews_V3: gsl.#Service & {
 	ingress: {
 		(name): {
 			gsl.#HTTPListener
-			routes:
-				"/":
-					upstreams:
-						"local":
-							instances: [{host: "127.0.0.1", port: 9090}]
+			routes: {
+				"/": {
+					upstreams: {
+						"local": {
+							instances: [
+								{
+									host: "127.0.0.1"
+									port: 9090
+								},
+							]
+						}
+					}
+				}
+			}
 		}
 	}
 	egress: {
