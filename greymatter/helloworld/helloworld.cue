@@ -68,7 +68,6 @@ Helloworld: gsl.#Service & {
 	edge: {
 		edge_name: "edge"
 		routes: "/services/bookinfo/helloworld": upstreams: (name): {
-			gsl.#DefaultUpstream
 			gsl.#MTLSUpstream
 		}
 	}
