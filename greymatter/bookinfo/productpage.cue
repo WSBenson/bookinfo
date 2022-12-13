@@ -15,7 +15,7 @@ Productpage: gsl.#Service & {
 	description:       "Book info product web app"
 	api_endpoint:      "http://\(context.globals.edge_host)/"
 	api_spec_endpoint: "http://\(context.globals.edge_host)/"
-	business_impact:   "low"
+	business_impact:   "medium"
 	owner:             "Library"
 	capability:        "Web"
 
@@ -39,6 +39,9 @@ Productpage: gsl.#Service & {
 		}
 	}
 	
+	// The app needs to know where to find it's dependencies
+	// in the mesh. We create egress routes from the apps sidecar
+	// below so it can easily reach by requesting to localhost:9080.
 	egress: {
 		"egress-to-services": {
 			gsl.#HTTPListener
@@ -71,10 +74,20 @@ Productpage: gsl.#Service & {
 			}
 		}
 	}
+
+	// Deploy productpage to the root of the application edge node.
+	// This is to serve the web app first above all other services.
 	edge: {
 		edge_name: "edge"
-		routes: "/": upstreams: (name): {namespace: context.globals.namespace}
-
+		routes: {
+			"/": {
+				upstreams: {
+					(name): {
+						namespace: context.globals.namespace
+					}
+				}
+			}
+		}
 	}
 }
 
