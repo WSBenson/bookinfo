@@ -27,7 +27,8 @@ Edge: gsl.#Service & {
 
 	ingress: {
 		(name): {
-			gsl.#HTTPListener
+			//gsl.#HTTPListener
+			gsl.#MTLSListener
 			port: 10809
 
 			filters: [
