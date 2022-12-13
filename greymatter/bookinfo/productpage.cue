@@ -29,7 +29,7 @@ Productpage: gsl.#Service & {
 	egress: {
 		"egress-to-services": {
 			gsl.#HTTPListener
-			port: 9080
+			port: context.globals.custom.default_egress
 			routes: {
 				"/details/": {
 					prefix_rewrite: "/details/"

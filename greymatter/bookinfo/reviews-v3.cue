@@ -28,7 +28,7 @@ Reviews_V3: gsl.#Service & {
 				"/":
 					upstreams:
 						"local":
-							instances: [{host: "127.0.0.1", port: 9080}]
+							instances: [{host: "127.0.0.1", port: 9090}]
 		}
 	}
 	egress: {
@@ -36,7 +36,7 @@ Reviews_V3: gsl.#Service & {
 			gsl.#HTTPListener
 			port: context.globals.custom.default_egress
 			routes: {
-				"/ratings": {
+				"/ratings/": {
 					prefix_rewrite: "/ratings/"
 					upstreams: {
 						"ratings": {
