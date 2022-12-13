@@ -63,11 +63,26 @@ Productpage: gsl.#Service & {
 						}
 					}
 				}
+
+				// We split traffic to v2/v3 to mimic what a canary 
+				// deployment might look like. We can slowly rollout new
+				// versions of services to test quality of service 
+				// for users. Default behavior is to "split" but it 
+				// can me used to shadow as well.
 				"/reviews/": {
 					prefix_rewrite: "/reviews/"
 					upstreams: {
 						"reviews-v2": {
 							namespace: "bookinfo"
+							traffic_options: {
+								weight: 50
+							}
+						}
+						"reviews-v3": {
+							namespace: "bookinfo"
+							traffic_options: {
+								weight: 50
+							}
 						}
 					}
 				}
