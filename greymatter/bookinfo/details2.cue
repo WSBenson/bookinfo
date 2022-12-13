@@ -48,7 +48,7 @@ Details2: gsl.#Service & {
 	edge: {
 		edge_name: "edge"
 		routes: "/bookinfo/details2": {
-			prefix_rewrite: "/"
+			prefix_rewrite: "/details2"
 			upstreams: (name): {
 				namespace: context.globals.namespace
 			}

@@ -51,7 +51,7 @@ Reviews_V3: gsl.#Service & {
 	edge: {
 		edge_name: "edge"
 		routes: "/bookinfo/reviews-v3": {
-			prefix_rewrite: "/"
+			prefix_rewrite: "/reviews-v3"
 			upstreams: (name): {
 				namespace: "bookinfo"
 			}
