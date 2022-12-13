@@ -133,7 +133,6 @@ import (
 
 	route_match: match_type: *"prefix" | "exact" | "regex"
 	route_match: path:       _routePathSlash
-	route_match: path: routePath
 
 	_default_redirect: [
 		{
