@@ -4,6 +4,7 @@ import (
 	gsl "greymatter.io/gsl/v1"
 
 	"bookinfo.module/greymatter:globals"
+	policies "bookinfo.module/greymatter/policies"
 )
 
 
@@ -33,14 +34,19 @@ Helloworld: gsl.#Service & {
 			//  NOTE: this must be filled out by a user. Impersonation allows other services to act on the behalf of identities
 			//  inside the system. Please uncomment if you wish to enable impersonation. If the servers list if left empty,
 			//  all traffic will be blocked.
-			//	filters: [
+				filters: [
 			//    gsl.#ImpersonationFilter & {
 			//		#options: {
 			//			servers: ""
 			//			caseSensitive: false
 			//		}
 			//    }
-			//	]
+					gsl.#RBACFilter & {
+					  #option: {
+						policies.#RBAC.#DenyAll
+					  }
+					},
+				]
 
 			routes: {
 				"/": {
