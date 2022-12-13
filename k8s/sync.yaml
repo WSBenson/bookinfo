@@ -69,4 +69,4 @@ metadata:
   name: greymatter-sync-config
   namespace: bookinfo
 data:
-  GREYMATTER_GIT_REMOTE: "git@github.com:jack-bischoff/bookinfo"
+  GREYMATTER_GIT_REMOTE: "git@github.com:WSBenson/bookinfo.git"
