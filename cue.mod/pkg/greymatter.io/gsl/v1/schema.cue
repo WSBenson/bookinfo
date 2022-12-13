@@ -132,7 +132,7 @@ import (
 	redirects: [...api.#Redirect & {redirect_type: *"permanent" | "temporary"}]
 
 	route_match: match_type: *"prefix" | "exact" | "regex"
-	// route_match: path:       _routePathSlash
+	route_match: path:       _routePathSlash
 	route_match: path: routePath
 
 	_default_redirect: [
@@ -144,7 +144,7 @@ import (
 	]
 
 	route_redirects: [...api.#Redirects]
-	// redirects: list.Concat([route_redirects, _default_redirect])
+	redirects: list.Concat([route_redirects, _default_redirect])
 	upstreams: #UpstreamsSchema
 }
 #RouteRedirect: {}
