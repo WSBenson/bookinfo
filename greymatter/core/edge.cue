@@ -49,7 +49,7 @@ Edge: gsl.#Service & {
 
 				// Make sure to uncomment the policies import statement
 				gsl.#RBACFilter & {
-				 #option: {
+				 #options: {
 				  policies.#RBAC.#DenyAll
 				 }
 				},
