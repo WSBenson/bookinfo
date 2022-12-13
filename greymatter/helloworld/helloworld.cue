@@ -69,6 +69,7 @@ Helloworld: gsl.#Service & {
 		edge_name: "edge"
 		routes: "/services/bookinfo/helloworld": upstreams: (name): {
 			gsl.#MTLSUpstream
+			namespace: "bookinfo"
 		}
 	}
 	
