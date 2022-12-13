@@ -23,7 +23,7 @@ Reviews_V3: gsl.#Service & {
 
 	ingress: {
 		(name): {
-			//gsl.#HTTPListener
+			gsl.#HTTPListener
 
 			// gsl.#MTLSListener
 
