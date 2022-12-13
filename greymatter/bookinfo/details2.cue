@@ -25,12 +25,10 @@ Details2: gsl.#Service & {
 	ingress: {
 		(name): {
 			gsl.#HTTPListener
-
 			routes: {
 				"/": {
 					upstreams: {
 						"local": {
-
 							instances: [
 								{
 									host: "127.0.0.1"
@@ -49,14 +47,13 @@ Details2: gsl.#Service & {
 	// outside your cluster/mesh.
 	edge: {
 		edge_name: "edge"
-		routes: "/bookinfo/details": {
+		routes: "/bookinfo/details2": {
 			prefix_rewrite: "/"
 			upstreams: (name): {
 				namespace: context.globals.namespace
 			}
 		}
 	}
-
 }
 
 exports: "details2": Details2

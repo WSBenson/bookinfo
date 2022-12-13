@@ -23,22 +23,24 @@ Ratings: gsl.#Service & {
 	ingress: {
 		(name): {
 			gsl.#HTTPListener
-			routes:
-				"/":
-					upstreams:
-						"local":
+			routes: {
+				"/": {
+					upstreams: {
+						"local": {
 							instances: [{host: "127.0.0.1", port: 9080}]
-
+						}
+					}	
+				}
+			}
 		}
 	}
 
 	edge: {
 		edge_name: "edge"
 		routes: {
-			"/bookinfo/ratings/": {
+			"/bookinfo/ratings": {
 				prefix_rewrite: "/"
 				upstreams: (name): {
-
 					namespace: "bookinfo"
 				}
 			}

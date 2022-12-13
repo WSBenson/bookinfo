@@ -29,7 +29,6 @@ Edge: gsl.#Service & {
 		(name): {
 			gsl.#HTTPListener
 			port: 10809
-
 			filters: [
 
 				// gsl.#OPAFilter & {

@@ -35,10 +35,10 @@ Reviews_V2: gsl.#Service & {
 	egress: {
 		"backends": {
 			gsl.#HTTPListener
-
 			port: context.globals.custom.default_egress
 			routes: {
-				"/ratings/": {
+				"/ratings": {
+					prefix_rewrite: "/"
 					upstreams: {
 						"ratings": {
 							namespace: "bookinfo"
