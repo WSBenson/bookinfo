@@ -75,13 +75,13 @@ Productpage: gsl.#Service & {
 						"reviews-v2": {
 							namespace: "bookinfo"
 							traffic_options: {
-								weight: 70
+								weight: 90
 							}
 						}
 						"reviews-v3": {
 							namespace: "bookinfo"
 							traffic_options: {
-								weight: 30
+								weight: 10
 							}
 						}
 					}
