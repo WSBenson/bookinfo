@@ -48,11 +48,11 @@ Edge: gsl.#Service & {
 				// },
 
 				//Make sure to uncomment the policies import statement
-				gsl.#RBACFilter & {
-				 #options: {
-				  policies.#RBAC.#DenyAll
-				 }
-				},
+				// gsl.#RBACFilter & {
+				//  #options: {
+				//   policies.#RBAC.#DenyAll
+				//  }
+				// },
 			]
 
 			// Default cluster pointing to itself
